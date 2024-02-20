@@ -1,0 +1,40 @@
+import mysql.connector
+
+class Identification:
+
+    def __init__(self, host, user, password, database):
+        self.connexion = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="za9?-U5zwD4-6#L",
+            database="user"
+        )
+        self.curseur = self.connexion.cursor()
+
+    def creer_user(self, pseudo, mots_de_passe, email, ):
+        requete = "INSERT INTO identifiant (pseudo, mots_de_passe, email) VALUES (%s, %s, %s)"
+        valeurs = (pseudo, mots_de_passe, email, )
+        self.curseur.execute(requete, valeurs)
+        self.connexion.commit()
+
+    def liste_user(self):
+        requete = "SELECT * FROM identifiant"
+        self.curseur.execute(requete)
+        resultat = self.curseur.fetchall()
+        return resultat
+
+    def mettre_a_jour_mdp(self, user_id, nouveau_mots_de_passe):
+        requete = "UPDATE identifiant SET mots_de_passe = %s WHERE id = %s"
+        valeurs = (nouveau_mots_de_passe, user_id)
+        self.curseur.execute(requete, valeurs)
+        self.connexion.commit()
+
+    def supprimer_user(self, user_id):
+        requete = "DELETE FROM identifiant WHERE id = %s"
+        valeurs = (user_id,)
+        self.curseur.execute(requete, valeurs)
+        self.connexion.commit()
+
+    def fermer_connexion(self):
+        self.curseur.close()
+        self.connexion.close()
