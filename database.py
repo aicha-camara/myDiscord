@@ -11,9 +11,9 @@ class Identification:
         )
         self.curseur = self.connexion.cursor()
 
-    def creer_user(self, pseudo, mots_de_passe, email, ):
-        requete = "INSERT INTO identifiant (pseudo, mots_de_passe, email) VALUES (%s, %s, %s)"
-        valeurs = (pseudo, mots_de_passe, email, )
+    def creer_user(self, pseudo, mots_de_passe, email, prenom, nom):
+        requete = "INSERT INTO identifiant (pseudo, mots_de_passe, email, prenom, nom ) VALUES (%s, %s, %s, %s, %s )"
+        valeurs = (pseudo, mots_de_passe, email, prenom, nom)
         self.curseur.execute(requete, valeurs)
         self.connexion.commit()
 
