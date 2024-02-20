@@ -26,7 +26,7 @@ def button_function():
     
 
 
-img1=ImageTk.PhotoImage(Image.open("../temp/discord/assets/pattern.png"))
+img1=ImageTk.PhotoImage(Image.open("assets/pattern.png"))
 l1=customtkinter.CTkLabel(master=app,image=img1)
 l1.pack()
 
@@ -42,9 +42,6 @@ entry1.place(x=50, y=110)
 
 entry2=customtkinter.CTkEntry(master=frame, width=220, placeholder_text='Password', show="*")
 entry2.place(x=50, y=165)
-
-l3=customtkinter.CTkLabel(master=frame, text="Forget password?",font=('Century Gothic',12))
-l3.place(x=155,y=195)
 
 #Create custom button
 button1 = customtkinter.CTkButton(master=frame, width=220, text="Login", command=button_function, corner_radius=6)
