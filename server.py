@@ -36,7 +36,7 @@ def recevoir():
     while True:
         client, adresse = server_socket.accept()
         print(f"connecté avec {str(adresse)}")
-        client.send('pseudo?'.encode('utf-8'))
+        client.send('pseudo'.encode('utf-8'))
         pseudo = client.recv(1024).decode('utf-8')
         pseudos.append(pseudo)
         clients.append(client)
