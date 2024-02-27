@@ -1,28 +1,29 @@
 import socket
 
-# Créer un socket TCP/IP
+host = '192.168.1.166'
+port = 12345
+
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-# Liaison du socket à une adresse et un port
-server_address = ('192.168.1.166', 12345)
-server_socket.bind(server_address)
-
-# Écouter les connexions entrantes
+server.bind((host, port))
 server_socket.listen(5)
 
-while True:
-    # Attendre une connexion
-    print("En attente de connexion...")
-    client_socket, client_address = server_socket.accept()
-    print(f"Connexion depuis {client_address}")
+clients = []
+pseudo = []
 
-    # Traiter les données entrantes
+def broadcast(message):
+    for client in clients:
+        client.send(message)
+
+def handle(client):
     while True:
-        data = client_socket.recv(1024)
-        if not data:
+        try:
+            message = client.recv(1024)
+            broadcast(message)
+        except:
+            index = clients.index(client)
+            clients.remove(client)
+            client.close()
+            pseudo = pseudo[index]
+            broadcast(f'{pseudo} a quitter la discussion'.encode('ascii'))
+            pseudo.remove(pseudo)
             break
-        print(f"Reçu : {data.decode()}")
-        client_socket.sendall(data)
-
-    # Fermer la connexion
-    client_socket.close()
