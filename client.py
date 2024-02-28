@@ -1,11 +1,13 @@
 import socket
 import threading
 
-pseudo = input("rentrer un pseudo")
-client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(('10.10.97.162', 55555))
-
-
+class Client:
+    def __init__(self, hote, port):
+        self.hote = hote
+        self.port = port
+        self.pseudo = input("Rentrer un pseudo : ")
+        self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.client.connect((self.hote, self.port))
 def recevoir():
     while True:
         try:
