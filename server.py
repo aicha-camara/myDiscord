@@ -17,19 +17,20 @@ class Serveur:
             client.send(message)
 
 
-def gerer(client):
-    while True:
-        try:
-            message = client.recv(1024)
-            diffusion(message)
-        except:
-            index = clients.index(client)
-            clients.remove(client)
-            client.close()
-            pseudo = pseudos[index]
-            diffusion(f'{pseudo} a quitté la discussion'.encode('utf-8'))
-            pseudos.remove(pseudo)
-            break
+    def gerer_client(self, client):
+        while True:
+            try:
+                message = client.recv(1024)
+                self.diffusion(message)
+            except Exception as e:
+                print(f"Erreur lors du traitement du client : {e}")
+                index = self.clients.index(client)
+                self.clients.remove(client)
+                client.close()
+                pseudo = self.pseudos[index]
+                self.diffusion(f'{pseudo} a quitté la discussion'.encode('utf-8'))
+                self.pseudos.remove(pseudo)
+                break
 
 
 def recevoir():
