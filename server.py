@@ -3,7 +3,7 @@ import threading
 
 
 class Serveur:
-    def __init__(self, hote, port):
+    def __init__(self, hote="10.10.97.162", port=55555):
         self.hote = hote
         self.port = port
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -11,11 +11,9 @@ class Serveur:
         self.clients = []
         self.pseudos = []
 
-
     def diffusion(self, message):
         for client in self.clients:
             client.send(message)
-
 
     def gerer_client(self, client):
         while True:
@@ -31,7 +29,6 @@ class Serveur:
                 self.diffusion(f'{pseudo} a quitté la discussion'.encode('utf-8'))
                 self.pseudos.remove(pseudo)
                 break
-
 
     def recevoir_clients(self):
         while True:
