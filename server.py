@@ -12,9 +12,9 @@ class Serveur:
         self.pseudos = []
 
 
-def diffusion(message):
-    for client in clients:
-        client.send(message)
+    def diffusion(self, message):
+        for client in self.clients:
+            client.send(message)
 
 
 def gerer(client):
