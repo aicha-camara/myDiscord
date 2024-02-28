@@ -46,6 +46,8 @@ class Serveur:
             thread = threading.Thread(target=self.gerer_client, args=(client,))
             thread.start()
 
-
-print("serveur en écoute")
-recevoir()
+    def demarrer(self):
+        print("Serveur en écoute")
+        self.server_socket.bind((self.hote, self.port))
+        self.server_socket.listen(5)
+        self.recevoir_clients()
