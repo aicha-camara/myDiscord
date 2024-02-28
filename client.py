@@ -23,15 +23,18 @@ class Client:
                 self.client.close()
                 break
 
+    def write(self):
+        while True:
+            message = f'{self.pseudo}: {input("")}'
+            self.client.send(message.encode('utf-8'))
 
-def write():
-    while True:
-        message = f'{pseudo}: {input("")}'
-        client.send(message.encode('utf-8'))
+if __name__ == "__main__":
+    hote = '10.10.97.162'
+    port = 55555
+    client = Client(hote, port)
 
+    receive_thread = threading.Thread(target=client.recevoir)
+    receive_thread.start()
 
-receive_thread = threading.Thread(target=recevoir)
-receive_thread.start()
-
-write_thread = threading.Thread(target=write)
-write_thread.start()
+    write_thread = threading.Thread(target=client.write)
+    write_thread.start()
