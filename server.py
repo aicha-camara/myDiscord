@@ -1,15 +1,15 @@
 import socket
 import threading
 
-hote = '10.10.97.162'
-port = 55555
 
-server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_socket.bind((hote, port))
-server_socket.listen(5)
-
-clients = []
-pseudos = []
+class Serveur:
+    def __init__(self, hote, port):
+        self.hote = hote
+        self.port = port
+        self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.server_socket.bind((self.hote, self.port))
+        self.clients = []
+        self.pseudos = []
 
 
 def diffusion(message):
