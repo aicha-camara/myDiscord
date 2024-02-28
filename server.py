@@ -33,18 +33,18 @@ class Serveur:
                 break
 
 
-def recevoir():
-    while True:
-        client, adresse = server_socket.accept()
-        print(f"connecté avec {str(adresse)}")
-        client.send('pseudo'.encode('utf-8'))
-        pseudo = client.recv(1024).decode('utf-8')
-        pseudos.append(pseudo)
-        clients.append(client)
-        print(f"Le pseudo du client est {pseudo}")
-        diffusion(f'{pseudo} a rejoint le chat'.encode('utf-8'))
-        thread = threading.Thread(target=gerer, args=(client,))
-        thread.start()
+    def recevoir_clients(self):
+        while True:
+            client, adresse = self.server_socket.accept()
+            print(f"Connecté avec {str(adresse)}")
+            client.send('pseudo'.encode('utf-8'))
+            pseudo = client.recv(1024).decode('utf-8')
+            self.pseudos.append(pseudo)
+            self.clients.append(client)
+            print(f"Le pseudo du client est {pseudo}")
+            self.diffusion(f'{pseudo} a rejoint le chat'.encode('utf-8'))
+            thread = threading.Thread(target=self.gerer_client, args=(client,))
+            thread.start()
 
 
 print("serveur en écoute")
