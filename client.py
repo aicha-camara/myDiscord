@@ -1,9 +1,10 @@
 import socket
 import threading
 
-pseudo = input('rentrer un pseudo')
+pseudo = input("rentrer un pseudo")
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(('10.10.95.178', 12345))
+client.connect(('10.10.97.162', 55555))
+
 
 def recevoir():
     while True:
@@ -18,3 +19,15 @@ def recevoir():
             client.close()
             break
 
+
+def write():
+    while True:
+        message = f'{pseudo}: {input("")}'
+        client.send(message.encode('utf-8'))
+
+
+receive_thread = threading.Thread(target=recevoir)
+receive_thread.start()
+
+write_thread = threading.Thread(target=write)
+write_thread.start()
