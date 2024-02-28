@@ -1,6 +1,7 @@
 import socket
 import threading
 
+
 class Client:
     def __init__(self, hote, port):
         self.hote = hote
@@ -8,18 +9,19 @@ class Client:
         self.pseudo = input("Rentrer un pseudo : ")
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.client.connect((self.hote, self.port))
-def recevoir():
-    while True:
-        try:
-            message = client.recv(1024).decode('utf-8')
-            if message == 'pseudo':
-                client.send(pseudo.encode('utf-8'))
-            else:
-                print(message)
-        except:
-            print("il ya une erreur")
-            client.close()
-            break
+
+    def recevoir(self):
+        while True:
+            try:
+                message = self.client.recv(1024).decode('utf-8')
+                if message == 'pseudo':
+                    self.client.send(self.pseudo.encode('utf-8'))
+                else:
+                    print(message)
+            except Exception as e:
+                print(f"Il y a une erreur : {e}")
+                self.client.close()
+                break
 
 
 def write():
