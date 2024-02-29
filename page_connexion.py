@@ -3,6 +3,7 @@ import customtkinter
 import subprocess
 from database import Identification
 from PIL import ImageTk, Image
+from server import Serveur
 
 customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("green")
@@ -27,8 +28,11 @@ def login():
             break
 
     if pseudo_mot_de_passe_valides:
+
         app.destroy()
-        subprocess.Popen(["python", "test2.py"])
+        subprocess.Popen(["python", "test.py"])
+        serveur = Serveur()
+        serveur.demarrer()
 
     else:
         l3 = customtkinter.CTkLabel(master=frame, text="Pseudo ou mot de passe incorrect.", font=('Century Gothic', 12))
@@ -63,6 +67,5 @@ button1.place(x=50, y=240)
 button2 = customtkinter.CTkButton(master=frame, width=220, text="S'inscrire", command=button_function2,
                                   corner_radius=6)
 button2.place(x=50, y=280)
-
 
 app.mainloop()

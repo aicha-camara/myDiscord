@@ -3,7 +3,7 @@ import threading
 
 
 class Serveur:
-    def __init__(self, hote="10.10.97.162", port=55555):
+    def __init__(self, hote="10.10.98.248", port=55555):
         self.hote = hote
         self.port = port
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -48,3 +48,7 @@ class Serveur:
         self.server_socket.bind((self.hote, self.port))
         self.server_socket.listen(5)
         self.recevoir_clients()
+
+if __name__ == "__main__":
+    serveur = Serveur()  # Créer une instance de la classe Serveur
+    serveur.demarrer()
