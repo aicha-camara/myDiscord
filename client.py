@@ -3,10 +3,10 @@ import threading
 
 
 class Client:
-    def __init__(self, hote, port):
+    def __init__(self, pseudo, hote="10.10.98.248", port=55555):
         self.hote = hote
         self.port = port
-        self.pseudo = input("Rentrer un pseudo : ")
+        self.pseudo = pseudo
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.client.connect((self.hote, self.port))
 
@@ -28,13 +28,11 @@ class Client:
             message = f'{self.pseudo}: {input("")}'
             self.client.send(message.encode('utf-8'))
 
+# Utilisation du client avec un pseudo pré-défini
 if __name__ == "__main__":
-    hote = '10.10.97.162'
-    port = 55555
-    client = Client(hote, port)
-
+    pseudo = input("Rentrer un pseudo : ")
+    client = Client(pseudo)
     receive_thread = threading.Thread(target=client.recevoir)
     receive_thread.start()
-
     write_thread = threading.Thread(target=client.write)
     write_thread.start()
