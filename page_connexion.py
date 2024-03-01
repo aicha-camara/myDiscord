@@ -17,7 +17,7 @@ def login():
     pseudo_entre = entry1.get()
     mot_de_passe_entre = entry2.get()
 
-    identification = Identification(host="localhost", user="root", password="za9?-U5zwD4-6#L", database="user")
+    identification = Identification(host="localhost", user="root", password="za9?-U5zwD4-6#L", database="myDiscord")
     liste_utilisateurs = identification.liste_user()
     identification.fermer_connexion()
 
@@ -45,7 +45,7 @@ def button_function2():
     subprocess.Popen(["python", "page_inscription.py"])
 
 
-img1 = ImageTk.PhotoImage(Image.open("assets/pattern.png"))
+img1 = ImageTk.PhotoImage(Image.open("assets/sep09.jpg"))
 l1 = customtkinter.CTkLabel(master=app, image=img1)
 l1.pack()
 
