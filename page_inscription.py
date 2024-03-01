@@ -28,7 +28,7 @@ def button_function():
 
 
     # Insérer l'utilisateur dans la base de données
-    identification = Identification(host="localhost", user="root", password="za9?-U5zwD4-6#L", database="user")
+    identification = Identification(host="localhost", user="root", password="za9?-U5zwD4-6#L", database="myDiscord")
     identification.creer_user(pseudo_entre, mot_de_passe_entre, email_entre, nom_entre, prenom_entre)
     identification.fermer_connexion()
 
