@@ -35,6 +35,12 @@ class Identification:
         self.curseur.execute(requete, valeurs)
         self.connexion.commit()
 
+    def creer_channel(self, channel_name, description, channel_owner, visibility):
+        requete = "INSERT INTO channel (channel_name, description, channel_owner, visibility) VALUES (%s, %s, %s, %s)"
+        valeurs = (channel_name, description, channel_owner, visibility)
+        self.curseur.execute(requete, valeurs)
+        self.connexion.commit()
+
     def fermer_connexion(self):
         self.curseur.close()
         self.connexion.close()
