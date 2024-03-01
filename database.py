@@ -7,7 +7,7 @@ class Identification:
             host="localhost",
             user="root",
             password="za9?-U5zwD4-6#L",
-            database="user"
+            database="myDiscord"
         )
         self.curseur = self.connexion.cursor()
 
