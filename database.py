@@ -1,5 +1,6 @@
 import mysql.connector
 
+
 class Identification:
 
     def __init__(self, host, user, password, database):
@@ -31,13 +32,19 @@ class Identification:
 
     def supprimer_user(self, user_id):
         requete = "DELETE FROM identifiant WHERE id = %s"
-        valeurs = (user_id,)
+        valeurs = user_id
         self.curseur.execute(requete, valeurs)
         self.connexion.commit()
 
     def creer_channel(self, channel_name, description, channel_owner, visibility):
         requete = "INSERT INTO channel (channel_name, description, channel_owner, visibility) VALUES (%s, %s, %s, %s)"
         valeurs = (channel_name, description, channel_owner, visibility)
+        self.curseur.execute(requete, valeurs)
+        self.connexion.commit()
+
+    def supprimer_channel(self, channel_id):
+        requete = "DELETE FROM channel WHERE channel_id = %s"
+        valeurs = channel_id
         self.curseur.execute(requete, valeurs)
         self.connexion.commit()
 
