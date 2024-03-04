@@ -1,6 +1,6 @@
 import mysql.connector
 
-class Identification:
+class Utilisateur:
 
     def __init__(self, host, user, password, database):
         self.connexion = mysql.connector.connect(
