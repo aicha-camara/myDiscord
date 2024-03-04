@@ -30,8 +30,8 @@ class Utilisateur:
         self.connexion.commit()
 
     def supprimer_user(self, user_id):
-        requete = "DELETE FROM identifiant WHERE id = %s"
-        valeurs = (user_id,)
+        requete = "DELETE FROM utilisateur WHERE id = %s"
+        valeurs = user_id
         self.curseur.execute(requete, valeurs)
         self.connexion.commit()
 
