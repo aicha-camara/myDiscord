@@ -23,9 +23,9 @@ class Utilisateur:
         resultat = self.curseur.fetchall()
         return resultat
 
-    def mettre_a_jour_mdp(self, user_id, nouveau_mots_de_passe):
-        requete = "UPDATE identifiant SET mots_de_passe = %s WHERE id = %s"
-        valeurs = (nouveau_mots_de_passe, user_id)
+    def mettre_a_jour_mdp(self, user_id, nouveau_mdp):
+        requete = "UPDATE utilisateur SET mdp = %s WHERE id = %s"
+        valeurs = (nouveau_mdp, user_id)
         self.curseur.execute(requete, valeurs)
         self.connexion.commit()
 
