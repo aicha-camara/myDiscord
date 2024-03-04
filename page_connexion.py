@@ -43,3 +43,5 @@ subprocess.Popen(["python", "page_inscription.py"])
 frame = customtkinter.CTkFrame(master=app, width=320, height=360, corner_radius=15)
 frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
+l2 = customtkinter.CTkLabel(master=frame, text="Se Connecter", font=('Century Gothic', 20))
+l2.place(x=50, y=45)
