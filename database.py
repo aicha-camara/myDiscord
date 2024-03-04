@@ -6,8 +6,8 @@ class Utilisateur:
         self.connexion = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="za9?-U5zwD4-6#L",
-            database="user"
+            password="e~KPh75=6p[G",
+            database="myDiscord"
         )
         self.curseur = self.connexion.cursor()
 
