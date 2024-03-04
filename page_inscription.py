@@ -4,7 +4,7 @@ import subprocess
 from database import Identification
 from PIL import ImageTk, Image
 
-customtkinter.set_appearance_mode("System")  # Modes: system (default), light, dark
+customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("green")  # Themes: blue (default), dark-blue, green
 
 app = customtkinter.CTk()
