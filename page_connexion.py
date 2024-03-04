@@ -26,4 +26,9 @@ def login():
         if utilisateur[5] == pseudo_entre and utilisateur[4] == mot_de_passe_entre:
             pseudo_mot_de_passe_valides = True
             break
+    
+    if pseudo_mot_de_passe_valides:
+
+        app.destroy()
+        subprocess.Popen(["python", "test.py"])
 
