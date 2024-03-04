@@ -36,9 +36,9 @@ def login():
         l3.place(x=90, y=195)
         print("Pseudo ou mot de passe incorrect.")
 
-    def button_function2():
-    app.destroy()
-    subprocess.Popen(["python", "page_inscription.py"])
+def button_function2():
+app.destroy()
+subprocess.Popen(["python", "page_inscription.py"])
 
 frame = customtkinter.CTkFrame(master=app, width=320, height=360, corner_radius=15)
 frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
