@@ -41,6 +41,12 @@ class Utilisateur:
         self.curseur.execute(requete, valeurs)
         self.connexion.commit()
 
+    def supprimer_channel(self, channel_id):
+        requete = "DELETE FROM channel WHERE channel_id = %s"
+        valeurs = channel_id
+        self.curseur.execute(requete, valeurs)
+        self.connexion.commit()
+
     def fermer_connexion(self):
         self.curseur.close()
         self.connexion.close()
