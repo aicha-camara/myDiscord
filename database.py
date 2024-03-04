@@ -35,6 +35,12 @@ class Utilisateur:
         self.curseur.execute(requete, valeurs)
         self.connexion.commit()
 
+    def creer_channel(self, nom_channel, description, role_access):
+        requete = "INSERT INTO channel (nom_channel, description, role_access) VALUES (%s, %s, %s)"
+        valeurs = (nom_channel, description, role_access)
+        self.curseur.execute(requete, valeurs)
+        self.connexion.commit()
+
     def fermer_connexion(self):
         self.curseur.close()
         self.connexion.close()
