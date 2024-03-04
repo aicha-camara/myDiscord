@@ -36,3 +36,7 @@ def login():
         l3.place(x=90, y=195)
         print("Pseudo ou mot de passe incorrect.")
 
+    def button_function2():
+    app.destroy()
+    subprocess.Popen(["python", "page_inscription.py"])
+
