@@ -51,3 +51,12 @@ entry1.place(x=50, y=110)
 
 entry2 = customtkinter.CTkEntry(master=frame, width=220, placeholder_text='Password', show="*")
 entry2.place(x=50, y=165)
+
+button1 = customtkinter.CTkButton(master=frame, width=220, text="Login", command=login, corner_radius=6)
+button1.place(x=50, y=240)
+
+button2 = customtkinter.CTkButton(master=frame, width=220, text="S'inscrire", command=button_function2,
+                                  corner_radius=6)
+button2.place(x=50, y=280)
+
+app.mainloop()
