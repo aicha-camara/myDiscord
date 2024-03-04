@@ -1,7 +1,7 @@
 import tkinter
 import customtkinter
 import subprocess
-from database import Identification
+from database import Utilisateur
 from PIL import ImageTk, Image
 
 customtkinter.set_appearance_mode("dark")
@@ -28,7 +28,7 @@ def button_function():
 
 
     # Insérer l'utilisateur dans la base de données
-    identification = Identification(host="localhost", user="root", password="za9?-U5zwD4-6#L", database="user")
+    identification = Utilisateur(host="localhost", user="root", password="e~KPh75=6p[G", database="myDiscord")
     identification.creer_user(pseudo_entre, mot_de_passe_entre, email_entre, nom_entre, prenom_entre)
     identification.fermer_connexion()
 
