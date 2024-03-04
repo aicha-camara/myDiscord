@@ -18,7 +18,7 @@ class Utilisateur:
         self.connexion.commit()
 
     def liste_user(self):
-        requete = "SELECT * FROM identifiant"
+        requete = "SELECT * FROM utilisateur"
         self.curseur.execute(requete)
         resultat = self.curseur.fetchall()
         return resultat
