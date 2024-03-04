@@ -28,7 +28,11 @@ def login():
             break
     
     if pseudo_mot_de_passe_valides:
-
         app.destroy()
         subprocess.Popen(["python", "test.py"])
+
+    else:
+        l3 = customtkinter.CTkLabel(master=frame, text="Pseudo ou mot de passe incorrect.", font=('Century Gothic', 12))
+        l3.place(x=90, y=195)
+        print("Pseudo ou mot de passe incorrect.")
 
