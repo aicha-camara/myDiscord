@@ -40,3 +40,6 @@ def login():
     app.destroy()
     subprocess.Popen(["python", "page_inscription.py"])
 
+frame = customtkinter.CTkFrame(master=app, width=320, height=360, corner_radius=15)
+frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+
