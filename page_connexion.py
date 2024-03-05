@@ -3,6 +3,7 @@ import customtkinter
 import subprocess
 from database import Identification
 from PIL import ImageTk,Image
+import os
 
 
 customtkinter.set_appearance_mode("dark")
@@ -29,7 +30,11 @@ def login():
     
     if pseudo_mot_de_passe_valides:
         app.destroy()
-        subprocess.Popen(["python", "test.py"])
+        current_directory = os.path.dirname(os.path.abspath(__file__))
+        # Concaténez le nom du script à exécuter pour former le chemin absolu du script
+        script_path = os.path.join(current_directory, "test2.py")
+        # Utilisez subprocess.Popen avec le chemin absolu du script
+        subprocess.Popen(["python", script_path])
 
     else:
         l3 = customtkinter.CTkLabel(master=frame, text="Pseudo ou mot de passe incorrect.", font=('Century Gothic', 12))
