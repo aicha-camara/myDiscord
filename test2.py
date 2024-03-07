@@ -37,3 +37,8 @@ image = Image.open(image_path)
 
     l5 = tk.Label(master=subframe, text="LaPlateforme", font=('Century Gothic', 20))
     l5.place(x=40, y=45)
+
+    # Création boite droite textuel
+    subframe2 = tk.Frame(master=app, width=700, height=600)
+    subframe2.place(relx=0.9, rely=0.5, anchor=tk.E)
+    app.mainloop()
