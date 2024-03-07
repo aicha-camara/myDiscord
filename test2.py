@@ -42,3 +42,7 @@ image = Image.open(image_path)
     subframe2 = tk.Frame(master=app, width=700, height=600)
     subframe2.place(relx=0.9, rely=0.5, anchor=tk.E)
     app.mainloop()
+
+if __name__ == "__main__":
+    main()
+    afficher_channels()
