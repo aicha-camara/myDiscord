@@ -11,3 +11,11 @@ def afficher_channels():
     for channel in liste_channels:    
         print(f"Vous avez accès au channel : {channel[0]}")
 
+def main():
+    app = tk.Tk()
+    app.geometry("1200x640")
+    app.title('discord')
+    MAIN_COLOR = "#282b30"
+
+    app.tk_setPalette(background="#282b30", foreground="white")
+    app.option_add("*Font", ("Century Gothic", 12))
