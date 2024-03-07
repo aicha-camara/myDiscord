@@ -18,3 +18,7 @@ def main():
 
     app.tk_setPalette(background="#282b30", foreground="white")
     app.option_add("*Font", ("Century Gothic", 12))
+
+# Obtenez le chemin absolu du fichier image
+    current_directory = os.path.dirname(os.path.abspath(__file__))
+    image_path = os.path.join(current_directory, "pattern.png")
