@@ -23,3 +23,17 @@ def main():
 # Obtenez le chemin absolu du fichier image
     current_directory = os.path.dirname(os.path.abspath(__file__))
     image_path = os.path.join(current_directory, "pattern.png")
+
+image = Image.open(image_path)
+    img1 = ImageTk.PhotoImage(image)
+
+    # Créer un widget Label pour afficher l'image
+    frame = tk.Label(app, image=img1)
+    frame.pack()
+
+    # Création boite gauche nom channel
+    subframe = tk.Frame(master=app, width=320, height=600, bg=MAIN_COLOR)
+    subframe.place(relx=0.3, rely=0.5, anchor=tk.E)
+
+    l5 = tk.Label(master=subframe, text="LaPlateforme", font=('Century Gothic', 20))
+    l5.place(x=40, y=45)
